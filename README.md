@@ -35,11 +35,11 @@ It is possible (and probably easy) to send the commands using serial tools other
 
 | Axis Name | Identifier | Usage |
 | - | - | - |
-| Base | A | A180 |
-| First arm segment | B | B90 |
-| Second arm segment | C | C90 |
-| Claw open/close | D | D85 (open) | D150 (closed)
-| Claw joint | E | E90 |
+| Base | `A` | A180 |
+| First arm segment | `B` | B90 |
+| Second arm segment | `C` | C90 |
+| Claw open/close | `D` | D85 (open) | D150 (closed) |
+| Claw joint | `E` | E90 |
 
 
 ## Routines

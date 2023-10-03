@@ -7,7 +7,8 @@
 
 A cheap and opensource desktop robot arm powered by Arduino
 
-![Arm Gif](https://via.placeholder.com/468x300?textScreenshot+Here)
+<img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/cf5ad78f-866d-47a4-8f6b-780c5da2424f" width=500>
+
 ## Features
 
 #### Arm
@@ -18,7 +19,7 @@ A cheap and opensource desktop robot arm powered by Arduino
 - Control over serial from any device
     - Allows for easy integration with custom-made software
 
-![Arm Picture](https://via.placeholder.com/234x150?textScreenshot+Here)
+<img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/edf8ef5c-4da6-47d9-b294-9b9e96f8d6a5" width=400>
 
 #### App
 - Live preview of the arm's position
@@ -28,7 +29,7 @@ A cheap and opensource desktop robot arm powered by Arduino
     - Fine control mode
         - Move the arm in 1-step increments using a keyboard
 
-![App Screenshot](https://via.placeholder.com/234x150?textScreenshot+Here)
+![App Screenshot](https://via.placeholder.com/400x220?textScreenshot+Here)
 
 ## Manual Control
 Manual commands can be sent directly to the Arduino using the serial tool.
@@ -47,10 +48,10 @@ It is possible (and probably easy) to send the commands using serial tools other
 
 ## Routines
 
-| Routine Name | Identifier | Usage | Gif |
+| Routine Name | Identifier | Usage |  |
 | - | - | - | - |
-| Vertical | `1` | 1 | ![Routine 1 Gif](https://via.placeholder.com/175x112?textScreenshot+Here) |
-| 90° Rotation Grab | `2` | 2 | ![Routine 2 Gif](https://via.placeholder.com/175x112?textScreenshot+Here) |
+| Vertical | `1` | 1 | ![Routine 1 Gif](https://via.placeholder.com/112x200?textScreenshot+Here) |
+| 90° Rotation Grab | `2` | 2 | ![Routine 2 Gif](https://github.com/greendino2000/Robot-Arm/assets/66684604/00b61e19-4e65-4340-a7a2-31270fb3ba48) |
 
 
 ## To-do
@@ -58,6 +59,7 @@ It is possible (and probably easy) to send the commands using serial tools other
 #### Arm
 
 - Redesign the entire arm to support larger/higher torque servos
+    - This will increase the cost significantly, so this will only happen once there is a working version using the affordable micro servos
 
 - Determine solution for hot stepper motor shaft melting base slot, resulting in unstable arm
 

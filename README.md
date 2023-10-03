@@ -17,6 +17,7 @@ A cheap and opensource desktop robot arm powered by Arduino
 - Repeatable and easy-to-program routines
 - Control over serial from any device
     - Allows for easy integration with custom-made software
+
 ![Arm Picture](https://via.placeholder.com/234x150?textScreenshot+Here)
 
 #### App
@@ -25,7 +26,8 @@ A cheap and opensource desktop robot arm powered by Arduino
     - Follow mouse mode
         - The end effector of the arm will follow the mouse on the screen
     - Fine control mode
-        - Move the arm in 1-step increments using a keyboard 
+        - Move the arm in 1-step increments using a keyboard
+
 ![App Screenshot](https://via.placeholder.com/234x150?textScreenshot+Here)
 
 ## Manual Control
@@ -38,14 +40,15 @@ It is possible (and probably easy) to send the commands using serial tools other
 | Base | `A` | A180 |
 | First arm segment | `B` | B90 |
 | Second arm segment | `C` | C90 |
-| Claw open/close | `D` | D85 (open) | D150 (closed) |
+| Claw open/close | `D` | D85 (open) / D150 (closed)* |
 | Claw joint | `E` | E90 |
 
+*It is important not to go outside the range provided for the claw, otherwise, it will break the servo
 
 ## Routines
 
-| Routine Name | Identifier | Usage |
-| - | - | - |
+| Routine Name | Identifier | Usage | Gif |
+| - | - | - | - |
 | Vertical | `1` | 1 | ![Routine 1 Gif](https://via.placeholder.com/175x112?textScreenshot+Here) |
 | 90° Rotation Grab | `2` | 2 | ![Routine 2 Gif](https://via.placeholder.com/175x112?textScreenshot+Here) |
 

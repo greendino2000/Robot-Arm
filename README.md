@@ -59,7 +59,7 @@ It is possible (and probably easy) to send the commands using serial tools other
 #### Arm
 
 - Redesign the entire arm to support larger/higher torque servos
-    - This will increase the cost significantly, so this will only happen once there is a working version using the affordable micro servos
+    - This will increase the cost significantly, so this will only happen once there is a working version using the affordable micro servos so this project can be viable for people who want to build their own robot arm for less
 
 - Determine solution for hot stepper motor shaft melting base slot, resulting in unstable arm
 

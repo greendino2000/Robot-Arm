@@ -36,7 +36,7 @@ Manual commands can be sent directly to the Arduino using the serial tool.
 
 It is possible (and probably easy) to send the commands using serial tools other than the Arduino IDE, but I haven't gotten to it.
 
-| Axis Name | Identifier | Usage |
+| Axis Name | Identifier | Usage (Identifier + Angle) |
 | - | - | - |
 | Base | `A` | A180 |
 | First arm segment | `B` | B90 |

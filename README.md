@@ -85,7 +85,6 @@ It is possible (and probably easy) to send the commands using serial tools other
 ## Credits
 
 - Author: [William Heald | @greendino2000](https://www.github.com/greendino2000)
-- Contributor: Valerie Umipig
 
 
 ## Contact

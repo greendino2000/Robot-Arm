@@ -84,14 +84,17 @@ It is possible (and probably easy) to send the commands using serial tools other
 #### 3D Printed Parts
 | File Name | Infill | Supports | Count |
 | - | - | - | - |
-| Arm1 | 20% | ❌ | `1` |
-
-#### Other
-- 
+| BaseSwivel | 75% | ❌ | `1` |
+| Base | 20% | ❌ | `1` |
+| SmallServoBigHornArmSegment | 20% | ❌ | `1` |
+| BigServoArmSegment | 20% | ❌ | `1` |
+| ClawJoint | 20% | ❌ | `1` |
+| Electronics Enclosure Top | 40% | ❌ | `1` |
+| Electronics Enclosure Shell | 20% | ❌ | `1` |
 
 ***Note:** "Count" refers to the number of times the linked product should be purchased. A more specific count for items such as screws and servos will be available with the build guide. The linked items generally come in a larger quanitity than needed.*
 
-*The urls provided link to the actual parts and sites that I purchased and used for this project. These parts can be substituted. This list is being updated as updates are made. I do not make any commission from these links*
+*The URLs provided link to the actual parts and sites that I purchased and used for this project. These parts can be substituted. This list is being updated as updates are made. I do not make any commission from these links*
 
 ## To-do
 
@@ -106,7 +109,7 @@ It is possible (and probably easy) to send the commands using serial tools other
 - Add limit switch to base to determine 0 automatically.
     - Currently, the base sets the position it is in on startup as 0.
 
-- ⭐ Remove DC barrel jack from circuit board
+- ⭐ Remove DC barrel jack from the circuit board
     - Replace with a [panel mount](https://www.adafruit.com/product/610) design that will run wires to a header
 
 - Add a usb keystone to the electronics box

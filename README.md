@@ -33,7 +33,7 @@ A cheap and opensource desktop robot arm powered by Arduino
 
 ## Control Methods
 
-###$ Manual Control
+### Manual Control
 Manual commands can be sent directly to the Arduino using the serial tool.
 
 It is possible (and probably easy) to send the commands using serial tools other than the Arduino IDE, but I haven't gotten to it.
@@ -46,7 +46,7 @@ It is possible (and probably easy) to send the commands using serial tools other
 | Claw open/close | `D` | D85 (open) / D150 (closed)* |
 | Claw joint | `E` | E90 |
 
-*It is important not to go outside the range provided for the claw, otherwise, it will break the servo
+*It is important not to go outside the range provided for the claw, otherwise, it will break the servo*
 
 ### Routines
 

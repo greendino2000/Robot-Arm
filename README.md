@@ -5,7 +5,7 @@
 
 # Robot Arm
 
-A cheap and opensource desktop robot arm powered by Arduino
+A cheap and opensource 4 DoF desktop robot arm powered by Arduino
 
 <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/cf5ad78f-866d-47a4-8f6b-780c5da2424f" width=500>
 
@@ -15,8 +15,8 @@ A cheap and opensource desktop robot arm powered by Arduino
 - Fully 3D printed body
 - Low-cost design
 - Easy repairability
-- Repeatable and easy-to-program routines
-- Control over serial from any device
+- Built-in and easy-to-program routines
+- Controllable over serial from any device
     - Allows for easy integration with custom-made software
 
 <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/edf8ef5c-4da6-47d9-b294-9b9e96f8d6a5" width=400>

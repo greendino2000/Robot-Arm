@@ -59,6 +59,7 @@ It is possible (and probably easy) to send the commands using serial tools other
 ## Parts list
 
 #### Electronics
+
 | Part | Count |
 | - | - |
 | [TB6612 Stepper control board](https://www.adafruit.com/product/2448) | `1` |
@@ -73,6 +74,7 @@ It is possible (and probably easy) to send the commands using serial tools other
 | [Nema 17 Stepper Motor](https://a.co/d/1J1Ycyb) | 13Ncm | `1` |
 
 #### Hardware
+
 | Part | Size | Count |
 | - | - | - |
 | [Rigid Flange Shaft Coupling](https://a.co/d/5UAfUNy) | 5 mm | `1` |
@@ -82,6 +84,7 @@ It is possible (and probably easy) to send the commands using serial tools other
 | [Servo Horns for MG996R](https://a.co/d/1S2e7fp) | 3 mm | `1` |
 
 #### 3D Printed Parts
+
 | File Name | Infill | Supports | Count |
 | - | - | - | - |
 | BaseSwivel | 75% | ❌ | `1` |

@@ -5,7 +5,7 @@
 
 # Robot Arm
 
-A affordable and opensource 4 DoF desktop robot arm powered by Arduino
+An affordable and opensource 4 DoF desktop robot arm powered by Arduino
 
 <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/cf5ad78f-866d-47a4-8f6b-780c5da2424f" width=500>
 

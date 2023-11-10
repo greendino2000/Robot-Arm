@@ -104,19 +104,27 @@ It is possible (and probably easy) to send the commands using serial tools other
 #### Arm
 
 - ✅ Redesign the entire arm to support larger/higher torque servos.
-    - ✅ This will increase the cost significantly, so this will only happen once there is a working version using the affordable micro servos so this project can be viable for people who want to build their own robot arm for less.
+    - ✅ This will increase the cost, so this will only happen once there is a working version using the affordable micro servos so this project can be viable for people who want to build their own robot arm for less.
+ 
+      <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/43cfa616-a986-43a0-8ce7-554302d3333c" width=150>
 
 - ✅ Determine solution for hot stepper motor shaft melting base slot, resulting in unstable arm.
-    - **Solution:** Added flange shaft coupling to stepper motor shaft to better secure the arm to the base and disperse heat.
+    - **Solution:** Added flange shaft coupling to stepper motor shaft to better secure the arm to the base and disperse heat. Need to lower the stepper motor into the electronics box to compensate for the height of the coupler.
+ 
+      <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/b596bd3f-3f4f-418d-9285-0e5348124355" width=300>
 
 - Add limit switch to base to determine 0 automatically.
     - Currently, the base sets the position it is in on startup as 0.
 
-- ⭐ Remove DC barrel jack from the circuit board
+- ✅⭐ Remove the DC barrel jack from the circuit board
     - Replace with a [panel mount](https://www.adafruit.com/product/610) design that will run wires to a header
+      
+      <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/f8aae525-f117-4124-9e52-ffe8943bdb7e" width=300>
 
-- Add a usb keystone to the electronics box
+- ✅ Add a USB keystone to the electronics box
     - Determine if a USB-A to USB-B keystone would work
+ 
+      <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/1029b9ce-0152-43fd-ab4a-a3bbf9b743d6" width=300>
 
 #### App
 
@@ -139,7 +147,7 @@ It is possible (and probably easy) to send the commands using serial tools other
 
 **Q:** Why are their such complicated notes for the parts list?
 
-**A:** I have found that parts lists for open source electronics projects tend to be confusing with what parts to order.
+**A:** I have found that parts lists for open-source electronics projects tend to be confusing with what parts to order.
 
 ---
 
@@ -151,7 +159,7 @@ It is possible (and probably easy) to send the commands using serial tools other
 
 **Q:** Where is the part list for the arm design that uses only micro servos?
 
-**A:** The part list for the initial design that only used micro servos will be avalible once I finish the build guide for that specific version.
+**A:** The part list for the initial design that only used micro servos will be available once I finish the build guide for that specific version.
 
 ---
 

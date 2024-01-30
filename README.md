@@ -21,15 +21,21 @@ An affordable and opensource 4 DoF desktop robot arm powered by Arduino
 
 <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/edf8ef5c-4da6-47d9-b294-9b9e96f8d6a5" width=400>
 
-#### App
-- Live preview of the arm's position
+#### Web UI
+- Interactive terminal
 - Full control of the arm's movement
-    - Follow mouse mode
-        - The end effector of the arm will follow the mouse on the screen
-    - Fine control mode
-        - Move the arm in 1-step increments using a keyboard
+    - Individual control of each motor and servo
+        - Slider control & Text boxes
+    - Direct serial control through terminal
+        - Reference "Manual Control"
+- Added routine functionality
+    - Easy programming of routines
+    - Integrated execution of routines without the need to hardcode the routines to the Arduino
+    - Intelligent file parsing for quick routine sharing between users and devices
 
-![App Screenshot](https://via.placeholder.com/400x220?textScreenshot+Here)
+<img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/b7a35cfb-fb3b-4f82-a40e-00e8e1d0145d" width=400>
+<img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/a22e23fb-ed8e-4eec-9e71-2d165f0288f1" width=400>
+
 
 ## Control Methods
 
@@ -46,9 +52,10 @@ It is possible (and probably easy) to send the commands using serial tools other
 | Claw open/close | `D` | D85 (open) / D150 (closed)* |
 | Claw joint | `E` | E90 |
 
-*It is important not to go outside the range provided for the claw, otherwise, it will break the servo*
+**It is important not to go outside the range provided for the claw, otherwise, it will break the servo.*
 
 ### Routines
+*The following routines come built-in with the arm's firmware.*
 
 | Routine Name | Identifier | Usage |  |
 | - | - | - | - |
@@ -56,7 +63,7 @@ It is possible (and probably easy) to send the commands using serial tools other
 | 90° Rotation Grab | `2` | 2 | ![Routine 2 Gif](https://github.com/greendino2000/Robot-Arm/assets/66684604/00b61e19-4e65-4340-a7a2-31270fb3ba48) |
 
 
-## Parts list
+## BOM
 
 #### Electronics
 

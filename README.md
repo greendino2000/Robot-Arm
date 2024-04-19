@@ -110,6 +110,25 @@ It is possible (and probably easy) to send the commands using serial tools other
 
 #### Arm
 
+- Add limit switch to base to determine 0 automatically.
+    - Currently, the base sets the position it is in on startup as 0.
+
+#### Other
+
+- Add tutorial on how to upload code to Arduino
+
+- Create step-by-step assembly guide
+
+- Update BOM
+
+- Upload photos of newest iteration of robot arm
+
+<details>
+<summary>Archived</summary>
+<br>
+
+#### Arm
+
 - ✅ Redesign the entire arm to support larger/higher torque servos.
     - ✅ This will increase the cost, so this will only happen once there is a working version using the affordable micro servos so this project can be viable for people who want to build their own robot arm for less.
  
@@ -119,9 +138,6 @@ It is possible (and probably easy) to send the commands using serial tools other
     - **Solution:** Added flange shaft coupling to stepper motor shaft to better secure the arm to the base and disperse heat. Need to lower the stepper motor into the electronics box to compensate for the height of the coupler.
  
       <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/b596bd3f-3f4f-418d-9285-0e5348124355" width=300>
-
-- Add limit switch to base to determine 0 automatically.
-    - Currently, the base sets the position it is in on startup as 0.
 
 - ✅⭐ Remove the DC barrel jack from the circuit board
     - Replace with a [panel mount](https://www.adafruit.com/product/610) design that will run wires to a header
@@ -135,22 +151,41 @@ It is possible (and probably easy) to send the commands using serial tools other
 
 #### App
 
-- Update control software to support the new arm code.
+- ✅ Update control software to support the new arm code.
 
-- Add the ability to save the current position as movement points for a routine.
+- ✅ Add the ability to save the current position as movement points for a routine.
 
-- Add the ability to select end effectors (claw, pen holder, etc.)
+- ✅ Add the ability to select end effectors (claw, pen holder, etc.)
 
 #### Other
 
-- Create a web app for simulation and programming without the physical arm
+- ✅ Create a web app for simulation and programming without the physical arm
     - *Kinda need to learn how to do that first though*
 
-- Add tutorial on how to upload code to Arduino
+</details>
 
-- Create step-by-step assembly guide
+## Gallery
+<details>
+<summary>V0</summary>
+<br>
+</details>
+<details>
+<summary>V1</summary>
+<br>
+    <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/cf5ad78f-866d-47a4-8f6b-780c5da2424f" width=300>
+</details>
+<details>
+<summary>V2</summary>
+<br>
+    <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/be18a873-1ef0-44f0-b762-fdaeb0d8fe2e" width=300>
+</details>
+<details>
+<summary>Presentation</summary>
+<br>
+    <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/3c4ca209-e576-481d-b856-9d7dd63e911e" width=800>
+</details>
 
-## Faq
+## FAQ
 
 **Q:** Why are their such complicated notes for the parts list?
 

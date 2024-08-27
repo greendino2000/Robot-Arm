@@ -21,7 +21,7 @@ An affordable and opensource 4 DoF desktop robot arm powered by Arduino
 
 <img src="https://github.com/greendino2000/Robot-Arm/assets/66684604/edf8ef5c-4da6-47d9-b294-9b9e96f8d6a5" width=400>
 
-#### Web UI
+#### Web UI ([Link](https://armcontrol.greendino.dev/))
 - Interactive terminal
 - Full control of the arm's movement
     - Individual control of each motor and servo

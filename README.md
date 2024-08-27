@@ -187,12 +187,6 @@ It is possible (and probably easy) to send the commands using serial tools other
 
 ## FAQ
 
-**Q:** Why are their such complicated notes for the parts list?
-
-**A:** I have found that parts lists for open-source electronics projects tend to be confusing with what parts to order.
-
----
-
 **Q:** I'm having a hard time building this for myself. Can I reach out for help?
 
 **A:** For sure! Send me an email and I'll be happy to guide you through building and operating your new robot arm.

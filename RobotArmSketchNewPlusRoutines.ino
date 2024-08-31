@@ -1,5 +1,5 @@
 #include <AccelStepper.h>
-#include <Servo.h>
+#include "ServoEasing.hpp"
 
 // Stepper motor pins
 #define MOTOR_PIN_1 8
@@ -16,56 +16,66 @@
 // Claw open/close servo
 #define SERVO4_PIN 7
 
-// Standby toggle
-// #define STBY_PIN 2
-
 #define STEPS_PER_REVOLUTION 200
+#define NUM_SERVOS 4
+
+int delayTime = 1000;
 
 AccelStepper stepper(AccelStepper::FULL4WIRE, MOTOR_PIN_1, MOTOR_PIN_2, MOTOR_PIN_3, MOTOR_PIN_4);
-Servo servos[] = {Servo(), Servo(), Servo(), Servo()};
-const int numServos = sizeof(servos) / sizeof(servos[0]);
+ServoEasing servos[NUM_SERVOS];
 
 // Define RoutineStep structure
 struct RoutineStep {
   int stepperPosition;
-  int servoPositions[numServos];
+  int servoPositions[NUM_SERVOS];
 };
 
 // Define routines
-RoutineStep routine1[] = {
-  {1, {100, 30, 90, 90}},
+RoutineStep routine1[] = { // Vertical
+  {1, {90, 0, 100, 90}},
 };
 
-RoutineStep routine2[] = {
-  {0, {135, 140, 80, 85}},
-  {0, {70, 65, 20, 150}},
-  {0, {70, 65, 20, 95}},
-  {0, {135, 120, 80, 95}},
-  {50, {60, 80, 50, 95}},
-  {50, {60, 80, 50, 150}},
-  {50, {135, 140, 80, 85}},
-  {0, {100, 25, 150, 90}},
+RoutineStep routine2[] = { // 90 deg grab
+  {0, {140, 140, 100, 90}},
+  {0, {20, 65, 55, 130}},
+  {0, {20, 65, 55, 80}},
+  {0, {140, 140, 100, 80}},
+  {50, {20, 55, 55, 80}},
+  {50, {20, 55, 55, 130}},
+  {50, {140, 130, 100, 90}},
+  {0, {90, 0, 100, 90}},
 };
 
-const int INTERPOLATION_STEPS = 15;  // Controls the smoothness of routines
+RoutineStep routine3[] = { // Fold
+  {0, {140, 140, 100, 90}},
+};
 
-/**
- * Initializes the setup of the robot arm sketch, including setting up the serial communication, stepper motor, and servos.
- */
+RoutineStep routine4[] = { // 90 deg grab adjusted
+  {0, {140, 140, 100, 90}},
+  {0, {5, 55, 50, 130}},
+  {0, {5, 55, 50, 75}},
+  {0, {140, 140, 100, 75}},
+  {50, {5, 55, 50, 75}},
+  {50, {5, 55, 50, 130}},
+  {50, {140, 130, 100, 90}},
+  {0, {90, 0, 100, 90}},
+};
+
 void setup() {
   Serial.begin(9600);
-
-  // pinMode(STBY_PIN, OUTPUT);
-  // digitalWrite(STBY_PIN, HIGH); // Enable the stepper initially
   
   stepper.setMaxSpeed(250);
   stepper.setAcceleration(125);
   stepper.setCurrentPosition(0);
 
-  // Attaches servos to pins
-  for (int i = 0; i < numServos; i++) {
-    servos[i].attach(SERVO1_PIN + i);
-  }
+  // Attach servos to pins
+  servos[0].attach(SERVO1_PIN);
+  servos[1].attach(SERVO2_PIN);
+  servos[2].attach(SERVO3_PIN);
+  servos[3].attach(SERVO4_PIN);
+
+  // Set default servo speed
+  setSpeedForAllServos(180);
 
   // Move to upright position
   executeRoutine(routine1, sizeof(routine1) / sizeof(routine1[0]));
@@ -80,9 +90,7 @@ void setup() {
  * @param targetPosition The target position to move the stepper motor to.
  */
 void moveStepperToPosition(int targetPosition) {
-  if (targetPosition > 200) {
-    targetPosition = 200;
-  }
+  if (targetPosition > 200) {targetPosition = 200;}
   stepper.moveTo(targetPosition);
   while (stepper.isRunning()) {
     stepper.run();
@@ -99,7 +107,7 @@ void moveStepperToPosition(int targetPosition) {
  */
 void setServoPosition(int servoIndex, int position) {
   if (position >= 0 && position <= 180) {
-    servos[servoIndex].write(position);
+    servos[servoIndex].easeTo(position);
     Serial.print("Servo ");
     Serial.print(servoIndex + 1);
     Serial.print(" Position: ");
@@ -107,7 +115,6 @@ void setServoPosition(int servoIndex, int position) {
   }
   else {
     Serial.println("Invalid servo position");
-    break;
   }
 }
 
@@ -117,36 +124,22 @@ void setServoPosition(int servoIndex, int position) {
  * @param numSteps The number of steps in the routine.
  */
 void executeRoutine(RoutineStep *routine, int numSteps) {
-  // digitalWrite(STBY_PIN, HIGH); // Enable motors before executing routine
-
   for (int step = 0; step < numSteps; step++) {
     moveStepperToPosition(routine[step].stepperPosition);
     
-    // Creates an array of the initial servo positions for intepolation calculations
-    int initialServoPositions[numServos];
-    for (int i = 0; i < numServos; i++) {
-      initialServoPositions[i] = servos[i].read();
+    // Set target positions for all servos
+    for (int servoIndex = 0; servoIndex < NUM_SERVOS; servoIndex++) {
+      servos[servoIndex].setEaseTo(routine[step].servoPositions[servoIndex]);
     }
     
-    // Interpolates between current and desired servo positions and sets them
-    for (int i = 1; i <= INTERPOLATION_STEPS; i++) {
-      for (int servoIndex = 0; servoIndex < numServos; servoIndex++) {
-        int interpolatedPosition = initialServoPositions[servoIndex] + ((routine[step].servoPositions[servoIndex] - initialServoPositions[servoIndex]) * i / INTERPOLATION_STEPS);
-        setServoPosition(servoIndex, interpolatedPosition);
-      }
-      delay(50); // Add a small delay between each interpolation step
-    }
+    // Start and synchronize all servo movements
+    synchronizeAllServosStartAndWaitForAllServosToStop();
     
-    // Sets the final servo positions
-    for (int servoIndex = 0; servoIndex < numServos; servoIndex++) {
-      setServoPosition(servoIndex, routine[step].servoPositions[servoIndex]);
-    }
-    
-    delay(1000); // Delay between steps
+    delay(delayTime); // Delay between steps
   }
-  
-  // digitalWrite(STBY_PIN, LOW); // Put motors in standby after moving
 }
+
+
 
 /**
  * This function reads serial input and performs actions based on the received character.
@@ -166,6 +159,7 @@ void processSerialInput() {
     int value = Serial.parseInt();
     
     switch (receivedChar) {
+      // Individual motor control
       case 'A':
         moveStepperToPosition(value);
         break;
@@ -176,17 +170,40 @@ void processSerialInput() {
         setServoPosition(1, value);
         break;
       case 'D':
-        setServoPosition(2, value);
+        if(isUpperCase(receivedChar)) {
+          setServoPosition(2, value);
+        }
         break;
       case 'E':
         setServoPosition(3, value);
         break;
+      // WebUI Functions
+      case 's': // Set speed
+        setSpeedForAllServos(value);
+        Serial.print("Speed set to: ");
+        Serial.println(value);
+        break;
+      case 'd': // Set delay
+        if(!isUpperCase(receivedChar)) {
+          delayTime = value;
+          Serial.print("Step delay set to: ");
+          Serial.println(value);
+        }
+        break;
+      // Hardcoded routines
       case '1': // Execute routine 1
         executeRoutine(routine1, sizeof(routine1) / sizeof(routine1[0]));
         break;
       case '2': // Execute routine 2
         executeRoutine(routine2, sizeof(routine2) / sizeof(routine2[0]));
         break;
+      case '3': // Execute routine 3
+        executeRoutine(routine3, sizeof(routine3) / sizeof(routine3[0]));
+        break;
+      case '4': // Execute routine 4
+        executeRoutine(routine4, sizeof(routine4) / sizeof(routine4[0]));
+        break;
+      // Fallback
       default:
         // Handle unknown command
         break;
